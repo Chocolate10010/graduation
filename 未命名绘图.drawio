@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="第 1 页" id="tZMtP7A4yuBvaPuyaepj">
-    <mxGraphModel dx="5620" dy="5600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2924" dy="2240" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -98,7 +98,7 @@
         <mxCell id="I2-MLwSUc6GrMuPYaOo3-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
           <mxGeometry height="60" width="120" x="150" y="340" as="geometry" />
         </mxCell>
-        <UserObject label="" mermaidData="{&#xa;  &quot;data&quot;: &quot;flowchart TD\n    subgraph Input[\&quot;输入\&quot;]\n        I1[多视角无人机图像]\n        I2[COLMAP标定]\n    end\n\n    subgraph Init[\&quot;初始化阶段\&quot;]\n        Init1[生成稀疏点云]\n        Init2[从点云生成初始三角形]\n        Init3[初始化体素网格]\n    end\n\n    subgraph Training[\&quot;训练循环（30,000~50,000步）\&quot;]\n        direction LR\n        subgraph BranchA[\&quot;分支A：三角形渲染\&quot;]\n            A1[3D→2D投影]\n            A2[计算窗口函数]\n            A3[深度顺序混合]\n            A4[输出RGB图+深度图]\n        end\n\n        subgraph BranchB[\&quot;分支B：体素几何\&quot;]\n            B1[深度图→世界坐标]\n            B2[加权平均融合]\n            B3[TSDF体素网格]\n            B4[沿射线查询表面]\n            B5[输出体素深度图]\n        end\n\n        subgraph Loss[\&quot;损失与更新\&quot;]\n            L1[RGB损失]\n            L2[深度一致性损失]\n            L3[正则化损失]\n            L4[梯度下降更新三角形]\n        end\n\n        A4 --&gt; B1\n        B3 --&gt; B4\n        B4 --&gt; B5\n        A4 --&gt; L1\n        B5 --&gt; L2\n        A4 --&gt; L2\n        L1 --&gt; L4\n        L2 --&gt; L4\n        L3 --&gt; L4\n        L4 -.-&gt;|更新顶点| A1\n    end\n\n    subgraph Output[\&quot;输出阶段\&quot;]\n        O1[三角形硬化退火]\n        O2[导出PLY/GLB网格]\n    end\n\n    I1 --&gt; Init1\n    I2 --&gt; Init1\n    Init1 --&gt; Init2\n    Init1 --&gt; Init3\n    Init2 --&gt; A1\n    Init3 --&gt; B3\n    L4 --&gt; O1\n    O1 --&gt; O2&quot;,&#xa;  &quot;config&quot;: null&#xa;}" id="I2-MLwSUc6GrMuPYaOo3-7">
+        <UserObject label="" mermaidData="flowchart TD&#xa;    subgraph Input[&quot;输入&quot;]&#xa;        I1[多视角无人机图像]&#xa;        I2[COLMAP标定]&#xa;    end&#xa;&#xa;    subgraph Init[&quot;初始化阶段&quot;]&#xa;        Init1[生成稀疏点云]&#xa;        Init2[从点云生成初始三角形]&#xa;        Init3[初始化体素网格]&#xa;    end&#xa;&#xa;    subgraph Training[&quot;训练循环（30000~50000步）&quot;]&#xa;        direction LR&#xa;        subgraph BranchA[&quot;分支A：三角形渲染&quot;]&#xa;            A1[3D→2D投影]&#xa;            A2[计算窗口函数]&#xa;            A3[深度顺序混合]&#xa;            A4[输出RGB图+深度图]&#xa;        end&#xa;&#xa;        subgraph BranchB[&quot;分支B：体素几何&quot;]&#xa;            B1[深度图→世界坐标]&#xa;            B2[加权平均融合]&#xa;            B3[TSDF体素网格]&#xa;            B4[沿射线查询表面]&#xa;            B5[输出体素深度图]&#xa;        end&#xa;&#xa;        subgraph Loss[&quot;损失与更新&quot;]&#xa;            L1[RGB损失]&#xa;            L2[深度一致性损失]&#xa;            L3[正则化损失]&#xa;            L4[梯度下降更新三角形]&#xa;        end&#xa;&#xa;        A4 --&gt; B1&#xa;        B3 --&gt; B4&#xa;        B4 --&gt; B5&#xa;        A4 --&gt; L1&#xa;        B5 --&gt; L2&#xa;        A4 --&gt; L2&#xa;        L1 --&gt; L4&#xa;        L2 --&gt; L4&#xa;        L3 --&gt; L4&#xa;        L4 -.-&gt;|更新顶点| A1&#xa;    end&#xa;&#xa;    subgraph Output[&quot;输出阶段&quot;]&#xa;        O1[三角形硬化退火]&#xa;        O2[导出PLY/GLB网格]&#xa;    end&#xa;&#xa;    I1 --&gt; Init1&#xa;    I2 --&gt; Init1&#xa;    Init1 --&gt; Init2&#xa;    Init1 --&gt; Init3&#xa;    Init2 --&gt; A1&#xa;    Init3 --&gt; B3&#xa;    L4 --&gt; O1&#xa;    O1 --&gt; O2" id="I2-MLwSUc6GrMuPYaOo3-7">
           <mxCell connectable="0" parent="1" style="group;transparentBounds=1;editIcon=1;lockedGroup=0;groupPadding=10;" vertex="1">
             <mxGeometry as="geometry" />
           </mxCell>
@@ -217,14 +217,14 @@
           </mxCell>
         </UserObject>
         <UserObject label="" mermaidId="e:B3-&gt;B4#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-29">
-          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-23" source="I2-MLwSUc6GrMuPYaOo3-26" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-27">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-23" source="I2-MLwSUc6GrMuPYaOo3-26" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" target="I2-MLwSUc6GrMuPYaOo3-27">
             <mxGeometry relative="1" as="geometry">
               <Array as="points" />
             </mxGeometry>
           </mxCell>
         </UserObject>
         <UserObject label="" mermaidId="e:B4-&gt;B5#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-30">
-          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-23" source="I2-MLwSUc6GrMuPYaOo3-27" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-28">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-23" source="I2-MLwSUc6GrMuPYaOo3-27" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" target="I2-MLwSUc6GrMuPYaOo3-28">
             <mxGeometry relative="1" as="geometry">
               <Array as="points" />
             </mxGeometry>
@@ -405,7 +405,7 @@
           </mxCell>
         </UserObject>
         <UserObject label="" mermaidId="e:Init3-&gt;B3#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=1;entryY=1;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-51">
-          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-7" source="I2-MLwSUc6GrMuPYaOo3-14" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=1;entryY=1;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-26">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-7" source="I2-MLwSUc6GrMuPYaOo3-14" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;entryDx=0;entryDy=0;" target="I2-MLwSUc6GrMuPYaOo3-26">
             <mxGeometry relative="1" as="geometry">
               <Array as="points" />
             </mxGeometry>
@@ -1215,6 +1215,823 @@
                 <mxPoint x="1899" y="6124" />
                 <mxPoint x="1959" y="6124" />
                 <mxPoint x="2019" y="6124" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidData="{&#xa;  &quot;data&quot;: &quot;flowchart TD\n    subgraph Input[\&quot;输入数据\&quot;]\n        A[多视角图像]\n        B[COLMAP 标定]\n    end\n\n    subgraph Init[\&quot;初始化 (3.3 节)\&quot;]\n        C[SfM 稀疏点云]\n        D[为每个点生成一个&lt;br&gt;近似等边随机朝向的三角形]\n        E[初始化参数:&lt;br&gt;顶点、颜色SH、α、σ]\n    end\n\n    subgraph Optim[\&quot;训练循环 (3.1/3.2/3.3 节)\&quot;]\n        subgraph Render[\&quot;前向渲染 (3.1 节)\&quot;]\n            F[3D 三角形投影到 2D]\n            G[计算符号距离场 φ(p)]\n            H[计算窗口函数&lt;br&gt;I(p)=ReLU(φ(p)/φ(s))^σ]\n            I[按深度顺序混合&lt;br&gt;C(p)=Σ c·α·I·Π(1-α·I)]\n            J[输出: RGB图 + 深度图]\n        end\n\n        subgraph Loss[\&quot;损失计算 (3.3 节)\&quot;]\n            K[光度损失: L₁ + D-SSIM]\n            L[正则化损失: L₀+Ld+Ln+Ls]\n            M[总损失: L = ...]\n        end\n\n        subgraph Update[\&quot;参数更新 (3.3 节)\&quot;]\n            N[反向传播梯度]\n            O[更新顶点、颜色、α、σ]\n        end\n\n        subgraph Density[\&quot;密度控制 (3.2 节)\&quot;]\n            P[剪枝: 移除低贡献&lt;br&gt;和单视图过拟合三角形]\n            Q[密化: MCMC采样&lt;br&gt;低σ区域中点细分]\n        end\n    end\n\n    subgraph Output[\&quot;输出\&quot;]\n        R[收敛的三角形汤]\n        S[导出 .ply / .obj]\n        T[游戏引擎 / 传统渲染器]\n    end\n\n    A --&gt; C\n    B --&gt; C\n    C --&gt; D --&gt; E\n    E --&gt; F\n    F --&gt; G --&gt; H --&gt; I --&gt; J\n    J --&gt; K\n    K --&gt; M\n    L --&gt; M\n    M --&gt; N --&gt; O\n    O --&gt;|每N步| P\n    P --&gt; Q\n    Q --&gt;|继续迭代| F\n    O --&gt;|训练完成| R\n    R --&gt; S --&gt; T&quot;,&#xa;  &quot;config&quot;: null&#xa;}" id="I2-MLwSUc6GrMuPYaOo3-157">
+          <mxCell connectable="0" parent="1" style="group;transparentBounds=1;editIcon=1;lockedGroup=0;groupPadding=10;" vertex="1">
+            <mxGeometry as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="输入数据" mermaidId="n:Input" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="输入数据" id="I2-MLwSUc6GrMuPYaOo3-158">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-157" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="124" width="415" x="849" y="6610" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="多视角图像" mermaidId="n:A" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="多视角图像" id="I2-MLwSUc6GrMuPYaOo3-159">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-158" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="140" x="35" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="COLMAP 标定" mermaidId="n:B" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="COLMAP 标定" id="I2-MLwSUc6GrMuPYaOo3-160">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-158" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="155" x="225" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="初始化 (3.3 节)" mermaidId="n:Init" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="初始化 (3.3 节)" id="I2-MLwSUc6GrMuPYaOo3-161">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-157" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="370" width="322" x="892" y="6764" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="SfM 稀疏点云" mermaidId="n:C" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="SfM 稀疏点云" id="I2-MLwSUc6GrMuPYaOo3-162">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-161" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="154" x="84" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="为每个点生成一个&#xa;近似等边随机朝向的三角形" mermaidId="n:D" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="为每个点生成一个&#xa;近似等边随机朝向的三角形" id="I2-MLwSUc6GrMuPYaOo3-163">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-161" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="73" width="252" x="35" y="149" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="初始化参数:&#xa;顶点、颜色SH、α、σ" mermaidId="n:E" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="初始化参数:&#xa;顶点、颜色SH、α、σ" id="I2-MLwSUc6GrMuPYaOo3-164">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-161" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="73" width="209" x="56" y="272" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:C-&gt;D#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-165">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-161" source="I2-MLwSUc6GrMuPYaOo3-162" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-163">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:D-&gt;E#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-166">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-161" source="I2-MLwSUc6GrMuPYaOo3-163" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-164">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="训练循环 (3.1/3.2/3.3 节)" mermaidId="n:Optim" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="训练循环 (3.1/3.2/3.3 节)" id="I2-MLwSUc6GrMuPYaOo3-167">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-157" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="1504" width="735" x="594" y="7144" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="前向渲染 (3.1 节)" mermaidId="n:Render" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="前向渲染 (3.1 节)" id="I2-MLwSUc6GrMuPYaOo3-168">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-167" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="578" width="527" x="68" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="3D 三角形投影到 2D" mermaidId="n:F" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="3D 三角形投影到 2D" id="I2-MLwSUc6GrMuPYaOo3-169">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-168" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="202" x="290" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="计算符号距离场 φ(p)" mermaidId="n:G" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="计算符号距离场 φ(p)" id="I2-MLwSUc6GrMuPYaOo3-170">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-168" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="209" x="45" y="149" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="计算窗口函数&#xa;I(p)=ReLU(φ(p)/φ(s))^σ" mermaidId="n:H" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="计算窗口函数&#xa;I(p)=ReLU(φ(p)/φ(s))^σ" id="I2-MLwSUc6GrMuPYaOo3-171">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-168" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="73" width="229" x="35" y="253" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="按深度顺序混合&#xa;C(p)=Σ c·α·I·Π(1-α·I)" mermaidId="n:I" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="按深度顺序混合&#xa;C(p)=Σ c·α·I·Π(1-α·I)" id="I2-MLwSUc6GrMuPYaOo3-172">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-168" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="73" width="207" x="46" y="376" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="输出: RGB图 + 深度图" mermaidId="n:J" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="输出: RGB图 + 深度图" id="I2-MLwSUc6GrMuPYaOo3-173">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-168" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="214" x="43" y="499" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:F-&gt;G#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-174">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-168" source="I2-MLwSUc6GrMuPYaOo3-169" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-170">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="560" y="646" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:G-&gt;H#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-175">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-168" source="I2-MLwSUc6GrMuPYaOo3-170" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-171">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:H-&gt;I#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-176">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-168" source="I2-MLwSUc6GrMuPYaOo3-171" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-172">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:I-&gt;J#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-177">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-168" source="I2-MLwSUc6GrMuPYaOo3-172" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-173">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="损失计算 (3.3 节)" mermaidId="n:Loss" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="损失计算 (3.3 节)" id="I2-MLwSUc6GrMuPYaOo3-178">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-167" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="228" width="573" x="75" y="653" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="光度损失: L₁ + D-SSIM" mermaidId="n:K" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="光度损失: L₁ + D-SSIM" id="I2-MLwSUc6GrMuPYaOo3-179">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-178" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="215" x="35" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="正则化损失: L₀+Ld+Ln+Ls" mermaidId="n:L" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="正则化损失: L₀+Ld+Ln+Ls" id="I2-MLwSUc6GrMuPYaOo3-180">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-178" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="238" x="300" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="总损失: L = ..." mermaidId="n:M" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="总损失: L = ..." id="I2-MLwSUc6GrMuPYaOo3-181">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-178" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="162" x="200" y="149" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:K-&gt;M#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-182">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-178" source="I2-MLwSUc6GrMuPYaOo3-179" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-181">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="553" y="646" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:L-&gt;M#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-183">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-178" source="I2-MLwSUc6GrMuPYaOo3-180" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-181">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="829" y="646" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="参数更新 (3.3 节)" mermaidId="n:Update" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="参数更新 (3.3 节)" id="I2-MLwSUc6GrMuPYaOo3-184">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-167" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="228" width="292" x="210" y="911" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="反向传播梯度" mermaidId="n:N" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="反向传播梯度" id="I2-MLwSUc6GrMuPYaOo3-185">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-184" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="156" x="68" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="更新顶点、颜色、α、σ" mermaidId="n:O" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="更新顶点、颜色、α、σ" id="I2-MLwSUc6GrMuPYaOo3-186">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-184" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="222" x="35" y="149" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:N-&gt;O#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-187">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-184" source="I2-MLwSUc6GrMuPYaOo3-185" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-186">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="密度控制 (3.2 节)" mermaidId="n:Density" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="密度控制 (3.2 节)" id="I2-MLwSUc6GrMuPYaOo3-188">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-167" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="266" width="374" x="293" y="1213" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="剪枝: 移除低贡献&#xa;和单视图过拟合三角形" mermaidId="n:P" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="剪枝: 移除低贡献&#xa;和单视图过拟合三角形" id="I2-MLwSUc6GrMuPYaOo3-189">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-188" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="73" width="220" x="35" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="密化: MCMC采样&#xa;低σ区域中点细分" mermaidId="n:Q" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="密化: MCMC采样&#xa;低σ区域中点细分" id="I2-MLwSUc6GrMuPYaOo3-190">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-188" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="73" width="181" x="158" y="168" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:P-&gt;Q#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-191">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-188" source="I2-MLwSUc6GrMuPYaOo3-189" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=1;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-190">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="555" y="665" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:J-&gt;K#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-192">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-167" source="I2-MLwSUc6GrMuPYaOo3-173" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-179">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:M-&gt;N#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-193">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-167" source="I2-MLwSUc6GrMuPYaOo3-181" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-185">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="每N步" mermaidId="e:O-&gt;P#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);html=1;fontSize=16;labelBackgroundColor=light-dark(#E8E8E88D,#2a2a2a8D);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);exitX=0.69;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="每N步" id="I2-MLwSUc6GrMuPYaOo3-194">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-167" source="I2-MLwSUc6GrMuPYaOo3-186" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);html=1;fontSize=16;labelBackgroundColor=light-dark(#E8E8E88D,#2a2a2a8D);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);exitX=0.69;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-189">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="438" y="1139" />
+                <mxPoint x="438" y="1174" />
+                <mxPoint x="438" y="1208" />
+                <mxPoint x="438" y="1233" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="继续迭代" mermaidId="e:Q-&gt;F#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);html=1;fontSize=16;labelBackgroundColor=light-dark(#E8E8E88D,#2a2a2a8D);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);exitX=1;exitY=0.01;entryX=1;entryY=0.91;" mermaidBaseValue="继续迭代" id="I2-MLwSUc6GrMuPYaOo3-195">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-167" source="I2-MLwSUc6GrMuPYaOo3-190" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);html=1;fontSize=16;labelBackgroundColor=light-dark(#E8E8E88D,#2a2a2a8D);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);exitX=1;exitY=0.01;entryX=1;entryY=0.91;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-169">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="700" y="1356" />
+                <mxPoint x="700" y="1295" />
+                <mxPoint x="700" y="1233" />
+                <mxPoint x="700" y="1208" />
+                <mxPoint x="700" y="1174" />
+                <mxPoint x="700" y="1139" />
+                <mxPoint x="700" y="1087" />
+                <mxPoint x="700" y="1035" />
+                <mxPoint x="700" y="983" />
+                <mxPoint x="700" y="931" />
+                <mxPoint x="700" y="906" />
+                <mxPoint x="700" y="881" />
+                <mxPoint x="700" y="829" />
+                <mxPoint x="700" y="777" />
+                <mxPoint x="700" y="725" />
+                <mxPoint x="700" y="673" />
+                <mxPoint x="700" y="648" />
+                <mxPoint x="700" y="623" />
+                <mxPoint x="700" y="571" />
+                <mxPoint x="700" y="519" />
+                <mxPoint x="700" y="458" />
+                <mxPoint x="700" y="396" />
+                <mxPoint x="700" y="335" />
+                <mxPoint x="700" y="273" />
+                <mxPoint x="700" y="221" />
+                <mxPoint x="700" y="169" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="输出" mermaidId="n:Output" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="输出" id="I2-MLwSUc6GrMuPYaOo3-196">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-157" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="410" width="292" x="330" y="8367" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="收敛的三角形汤" mermaidId="n:R" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="收敛的三角形汤" id="I2-MLwSUc6GrMuPYaOo3-197">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-196" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="172" x="60" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="导出 .ply / .obj" mermaidId="n:S" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="导出 .ply / .obj" id="I2-MLwSUc6GrMuPYaOo3-198">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-196" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="172" x="60" y="168" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="游戏引擎 / 传统渲染器" mermaidId="n:T" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="游戏引擎 / 传统渲染器" id="I2-MLwSUc6GrMuPYaOo3-199">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-196" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="222" x="35" y="331" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:R-&gt;S#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-200">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-196" source="I2-MLwSUc6GrMuPYaOo3-197" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-198">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:S-&gt;T#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-201">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-196" source="I2-MLwSUc6GrMuPYaOo3-198" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-199">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:A-&gt;C#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.16;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-202">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-157" source="I2-MLwSUc6GrMuPYaOo3-159" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.16;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-162">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="954" y="6734" />
+                <mxPoint x="954" y="6759" />
+                <mxPoint x="954" y="6784" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:B-&gt;C#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.83;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-203">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-157" source="I2-MLwSUc6GrMuPYaOo3-160" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.83;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-162">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1152" y="6734" />
+                <mxPoint x="1152" y="6759" />
+                <mxPoint x="1152" y="6784" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:E-&gt;F#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=1;entryY=1;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-204">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-157" source="I2-MLwSUc6GrMuPYaOo3-164" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=1;entryY=1;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-169">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="训练完成" mermaidId="e:O-&gt;R#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);html=1;fontSize=16;labelBackgroundColor=light-dark(#E8E8E88D,#2a2a2a8D);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=0.24;" mermaidBaseValue="训练完成" id="I2-MLwSUc6GrMuPYaOo3-205">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-157" source="I2-MLwSUc6GrMuPYaOo3-186" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);html=1;fontSize=16;labelBackgroundColor=light-dark(#E8E8E88D,#2a2a2a8D);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontColor=light-dark(#333333,#cccccc);exitX=1;exitY=1;entryX=1;entryY=0.24;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-197">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="867" y="8283" />
+                <mxPoint x="867" y="8318" />
+                <mxPoint x="867" y="8352" />
+                <mxPoint x="867" y="8377" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidData="{&#xa;  &quot;data&quot;: &quot;flowchart TD\n    subgraph S1[\&quot;步骤0：初始化\&quot;]\n        A[多视角图像 + COLMAP标定]\n        B[SfM稀疏点云]\n        C[生成初始三角形]\n        D[初始化参数：顶点、颜色SH、α、σ]\n    end\n\n    subgraph S2[\&quot;步骤1：分支A渲染\&quot;]\n        E[3D→2D投影]\n        F[计算符号距离场 φ(p)]\n        G[窗口函数 I(p)=ReLU(φ(p)/φ(s))^σ]\n        H[深度顺序混合]\n        I[输出RGB图 + 深度图]\n    end\n\n    subgraph S3[\&quot;步骤2：体素融合\&quot;]\n        J[深度→世界坐标]\n        K[体素加权平均融合]\n        L[更新TSDF体素网格]\n    end\n\n    subgraph S4[\&quot;步骤3：体素查询\&quot;]\n        M[沿射线采样]\n        N[找TSDF=0零交叉点]\n        O[输出体素深度图 D_slow]\n    end\n\n    subgraph S5[\&quot;步骤4：损失计算\&quot;]\n        P[RGB损失 L_rgb]\n        Q[深度一致性损失 L_corrected]\n        R[正则化损失 L_o+L_d+L_n+L_s]\n        S[总损失 L_total]\n    end\n\n    subgraph S6[\&quot;步骤5：参数更新\&quot;]\n        T[反向传播梯度]\n        U[更新顶点/颜色/α/σ]\n    end\n\n    subgraph S7[\&quot;步骤6：密度控制\&quot;]\n        V[剪枝低贡献三角形]\n        W[密化低σ区域]\n    end\n\n    subgraph S8[\&quot;步骤7：硬化与导出\&quot;]\n        X[退火σ→σ_final]\n        Y[剪掉低α三角形]\n        Z[导出PLY/GLB网格]\n    end\n\n    A --&gt; B\n    B --&gt; C\n    C --&gt; D\n    D --&gt; E\n\n    E --&gt; F\n    F --&gt; G\n    G --&gt; H\n    H --&gt; I\n\n    I --&gt; J\n    J --&gt; K\n    K --&gt; L\n\n    L --&gt; M\n    M --&gt; N\n    N --&gt; O\n\n    I --&gt; P\n    O --&gt; Q\n    I --&gt; Q\n    P --&gt; S\n    Q --&gt; S\n    R --&gt; S\n\n    S --&gt; T\n    T --&gt; U\n\n    U --&gt; V\n    V --&gt; W\n    W --&gt; E\n\n    U --&gt; X\n    X --&gt; Y\n    Y --&gt; Z&quot;,&#xa;  &quot;config&quot;: null&#xa;}" id="I2-MLwSUc6GrMuPYaOo3-206">
+          <mxCell connectable="0" parent="1" style="group;transparentBounds=1;editIcon=1;lockedGroup=0;groupPadding=10;" vertex="1">
+            <mxGeometry as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="步骤0：初始化" mermaidId="n:S1" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="步骤0：初始化" id="I2-MLwSUc6GrMuPYaOo3-207">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-206" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="436" width="375" x="2024" y="8730" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="多视角图像 + COLMAP标定" mermaidId="n:A" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="多视角图像 + COLMAP标定" id="I2-MLwSUc6GrMuPYaOo3-208">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-207" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="248" x="63" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="SfM稀疏点云" mermaidId="n:B" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="SfM稀疏点云" id="I2-MLwSUc6GrMuPYaOo3-209">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-207" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="149" x="113" y="149" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="生成初始三角形" mermaidId="n:C" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="生成初始三角形" id="I2-MLwSUc6GrMuPYaOo3-210">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-207" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="172" x="101" y="253" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="初始化参数：顶点、颜色SH、α、σ" mermaidId="n:D" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="初始化参数：顶点、颜色SH、α、σ" id="I2-MLwSUc6GrMuPYaOo3-211">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-207" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="305" x="35" y="357" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:A-&gt;B#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-212">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-207" source="I2-MLwSUc6GrMuPYaOo3-208" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-209">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:B-&gt;C#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-213">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-207" source="I2-MLwSUc6GrMuPYaOo3-209" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-210">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:C-&gt;D#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-214">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-207" source="I2-MLwSUc6GrMuPYaOo3-210" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-211">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="步骤1：分支A渲染" mermaidId="n:S2" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="步骤1：分支A渲染" id="I2-MLwSUc6GrMuPYaOo3-215">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-206" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="540" width="649" x="1669" y="9196" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="3D→2D投影" mermaidId="n:E" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="3D→2D投影" id="I2-MLwSUc6GrMuPYaOo3-216">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-215" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="144" x="470" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="计算符号距离场 φ(p)" mermaidId="n:F" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="计算符号距离场 φ(p)" id="I2-MLwSUc6GrMuPYaOo3-217">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-215" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="209" x="79" y="149" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="窗口函数 I(p)=ReLU(φ(p)/φ(s))^σ" mermaidId="n:G" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="窗口函数 I(p)=ReLU(φ(p)/φ(s))^σ" id="I2-MLwSUc6GrMuPYaOo3-218">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-215" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="297" x="35" y="253" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="深度顺序混合" mermaidId="n:H" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="深度顺序混合" id="I2-MLwSUc6GrMuPYaOo3-219">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-215" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="156" x="106" y="357" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="输出RGB图 + 深度图" mermaidId="n:I" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="输出RGB图 + 深度图" id="I2-MLwSUc6GrMuPYaOo3-220">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-215" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="203" x="82" y="461" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:E-&gt;F#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0;exitY=0.69;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-221">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-215" source="I2-MLwSUc6GrMuPYaOo3-216" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0;exitY=0.69;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-217">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="184" y="124" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:F-&gt;G#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-222">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-215" source="I2-MLwSUc6GrMuPYaOo3-217" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-218">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:G-&gt;H#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-223">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-215" source="I2-MLwSUc6GrMuPYaOo3-218" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-219">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:H-&gt;I#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-224">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-215" source="I2-MLwSUc6GrMuPYaOo3-219" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-220">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="步骤2：体素融合" mermaidId="n:S3" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="步骤2：体素融合" id="I2-MLwSUc6GrMuPYaOo3-225">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-206" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="332" width="261" x="1744" y="9766" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="深度→世界坐标" mermaidId="n:J" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="深度→世界坐标" id="I2-MLwSUc6GrMuPYaOo3-226">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-225" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="172" x="44" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="体素加权平均融合" mermaidId="n:K" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="体素加权平均融合" id="I2-MLwSUc6GrMuPYaOo3-227">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-225" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="188" x="36" y="149" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="更新TSDF体素网格" mermaidId="n:L" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="更新TSDF体素网格" id="I2-MLwSUc6GrMuPYaOo3-228">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-225" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="191" x="35" y="253" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:J-&gt;K#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-229">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-225" source="I2-MLwSUc6GrMuPYaOo3-226" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-227">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:K-&gt;L#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-230">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-225" source="I2-MLwSUc6GrMuPYaOo3-227" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-228">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="步骤3：体素查询" mermaidId="n:S4" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="步骤3：体素查询" id="I2-MLwSUc6GrMuPYaOo3-231">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-206" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="332" width="297" x="1726" y="10128" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="沿射线采样" mermaidId="n:M" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="沿射线采样" id="I2-MLwSUc6GrMuPYaOo3-232">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-231" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="140" x="78" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="找TSDF=0零交叉点" mermaidId="n:N" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="找TSDF=0零交叉点" id="I2-MLwSUc6GrMuPYaOo3-233">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-231" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="192" x="52" y="149" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="输出体素深度图 D_slow" mermaidId="n:O" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="输出体素深度图 D_slow" id="I2-MLwSUc6GrMuPYaOo3-234">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-231" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="227" x="35" y="253" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:M-&gt;N#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-235">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-231" source="I2-MLwSUc6GrMuPYaOo3-232" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-233">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:N-&gt;O#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-236">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-231" source="I2-MLwSUc6GrMuPYaOo3-233" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-234">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="步骤4：损失计算" mermaidId="n:S5" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="步骤4：损失计算" id="I2-MLwSUc6GrMuPYaOo3-237">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-206" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="228" width="904" x="1540" y="10490" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="RGB损失 L_rgb" mermaidId="n:P" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="RGB损失 L_rgb" id="I2-MLwSUc6GrMuPYaOo3-238">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-237" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="166" x="35" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="深度一致性损失 L_corrected" mermaidId="n:Q" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="深度一致性损失 L_corrected" id="I2-MLwSUc6GrMuPYaOo3-239">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-237" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="263" x="287" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="正则化损失 L_o+L_d+L_n+L_s" mermaidId="n:R" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="正则化损失 L_o+L_d+L_n+L_s" id="I2-MLwSUc6GrMuPYaOo3-240">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-237" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="269" x="600" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="总损失 L_total" mermaidId="n:S" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="总损失 L_total" id="I2-MLwSUc6GrMuPYaOo3-241">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-237" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="164" x="363" y="149" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:P-&gt;S#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0;entryY=0.26;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-242">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-237" source="I2-MLwSUc6GrMuPYaOo3-238" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0;entryY=0.26;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-241">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="118" y="124" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:Q-&gt;S#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.41;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-243">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-237" source="I2-MLwSUc6GrMuPYaOo3-239" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.41;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-241">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="419" y="124" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:R-&gt;S#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=1;entryY=0.22;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-244">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-237" source="I2-MLwSUc6GrMuPYaOo3-240" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=1;entryY=0.22;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-241">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="735" y="124" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="步骤5：参数更新" mermaidId="n:S6" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="步骤5：参数更新" id="I2-MLwSUc6GrMuPYaOo3-245">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-206" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="228" width="270" x="1850" y="10748" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="反向传播梯度" mermaidId="n:T" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="反向传播梯度" id="I2-MLwSUc6GrMuPYaOo3-246">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-245" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="156" x="57" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="更新顶点/颜色/α/σ" mermaidId="n:U" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="更新顶点/颜色/α/σ" id="I2-MLwSUc6GrMuPYaOo3-247">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-245" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="200" x="35" y="149" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:T-&gt;U#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-248">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-245" source="I2-MLwSUc6GrMuPYaOo3-246" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-247">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="步骤6：密度控制" mermaidId="n:S7" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="步骤6：密度控制" id="I2-MLwSUc6GrMuPYaOo3-249">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-206" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="228" width="492" x="1993" y="11006" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="剪枝低贡献三角形" mermaidId="n:V" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="剪枝低贡献三角形" id="I2-MLwSUc6GrMuPYaOo3-250">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-249" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="188" x="35" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="密化低σ区域" mermaidId="n:W" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="密化低σ区域" id="I2-MLwSUc6GrMuPYaOo3-251">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-249" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="149" x="308" y="149" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:V-&gt;W#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0;entryY=0.22;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-252">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-249" source="I2-MLwSUc6GrMuPYaOo3-250" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0;entryY=0.22;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-251">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="129" y="124" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="步骤7：硬化与导出" mermaidId="n:S8" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="步骤7：硬化与导出" id="I2-MLwSUc6GrMuPYaOo3-253">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-206" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="357" width="254" x="1719" y="11006" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="退火σ→σ_final" mermaidId="n:X" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="退火σ→σ_final" id="I2-MLwSUc6GrMuPYaOo3-254">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-253" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="167" x="44" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="剪掉低α三角形" mermaidId="n:Y" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="剪掉低α三角形" id="I2-MLwSUc6GrMuPYaOo3-255">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-253" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="165" x="45" y="149" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="导出PLY/GLB网格" mermaidId="n:Z" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="导出PLY/GLB网格" id="I2-MLwSUc6GrMuPYaOo3-256">
+          <mxCell parent="I2-MLwSUc6GrMuPYaOo3-253" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=light-dark(#ECECFF,#1f2020);strokeColor=light-dark(#9370DB,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="184" x="35" y="278" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:X-&gt;Y#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-257">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-253" source="I2-MLwSUc6GrMuPYaOo3-254" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-255">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:Y-&gt;Z#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-258">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-253" source="I2-MLwSUc6GrMuPYaOo3-255" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-256">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:D-&gt;E#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-259">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-206" source="I2-MLwSUc6GrMuPYaOo3-211" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-216">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:I-&gt;J#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.56;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-260">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-206" source="I2-MLwSUc6GrMuPYaOo3-220" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.56;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-226">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1874" y="9736" />
+                <mxPoint x="1874" y="9761" />
+                <mxPoint x="1874" y="9786" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:L-&gt;M#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-261">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-206" source="I2-MLwSUc6GrMuPYaOo3-228" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-232">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:I-&gt;P#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-262">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-206" source="I2-MLwSUc6GrMuPYaOo3-220" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-238">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1658" y="9736" />
+                <mxPoint x="1658" y="9761" />
+                <mxPoint x="1658" y="9786" />
+                <mxPoint x="1658" y="9838" />
+                <mxPoint x="1658" y="9890" />
+                <mxPoint x="1658" y="9942" />
+                <mxPoint x="1658" y="9994" />
+                <mxPoint x="1658" y="10046" />
+                <mxPoint x="1658" y="10098" />
+                <mxPoint x="1658" y="10123" />
+                <mxPoint x="1658" y="10148" />
+                <mxPoint x="1658" y="10200" />
+                <mxPoint x="1658" y="10252" />
+                <mxPoint x="1658" y="10304" />
+                <mxPoint x="1658" y="10356" />
+                <mxPoint x="1658" y="10408" />
+                <mxPoint x="1658" y="10460" />
+                <mxPoint x="1658" y="10485" />
+                <mxPoint x="1658" y="10510" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:O-&gt;Q#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.33;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-263">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-206" source="I2-MLwSUc6GrMuPYaOo3-234" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.33;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-239">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1874" y="10460" />
+                <mxPoint x="1874" y="10485" />
+                <mxPoint x="1874" y="10510" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:I-&gt;Q#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=0.8;entryX=0.94;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-264">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-206" source="I2-MLwSUc6GrMuPYaOo3-220" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=1;exitY=0.8;entryX=0.94;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-239">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="2181" y="9736" />
+                <mxPoint x="2181" y="9761" />
+                <mxPoint x="2181" y="9786" />
+                <mxPoint x="2181" y="9838" />
+                <mxPoint x="2181" y="9890" />
+                <mxPoint x="2181" y="9942" />
+                <mxPoint x="2181" y="9994" />
+                <mxPoint x="2181" y="10046" />
+                <mxPoint x="2181" y="10098" />
+                <mxPoint x="2181" y="10123" />
+                <mxPoint x="2181" y="10148" />
+                <mxPoint x="2181" y="10200" />
+                <mxPoint x="2181" y="10252" />
+                <mxPoint x="2181" y="10304" />
+                <mxPoint x="2181" y="10356" />
+                <mxPoint x="2181" y="10408" />
+                <mxPoint x="2181" y="10460" />
+                <mxPoint x="2181" y="10485" />
+                <mxPoint x="2181" y="10510" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:S-&gt;T#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-265">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-206" source="I2-MLwSUc6GrMuPYaOo3-241" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-246">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:U-&gt;V#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.86;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-266">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-206" source="I2-MLwSUc6GrMuPYaOo3-247" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.86;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-250">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="2122" y="10976" />
+                <mxPoint x="2122" y="11001" />
+                <mxPoint x="2122" y="11026" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:W-&gt;E#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.81;exitY=0;entryX=1;entryY=0.78;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-267">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-206" source="I2-MLwSUc6GrMuPYaOo3-251" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.81;exitY=0;entryX=1;entryY=0.78;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-216">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="2464" y="11130" />
+                <mxPoint x="2464" y="11078" />
+                <mxPoint x="2464" y="11026" />
+                <mxPoint x="2464" y="11001" />
+                <mxPoint x="2464" y="10976" />
+                <mxPoint x="2464" y="10924" />
+                <mxPoint x="2464" y="10872" />
+                <mxPoint x="2464" y="10820" />
+                <mxPoint x="2464" y="10768" />
+                <mxPoint x="2464" y="10743" />
+                <mxPoint x="2464" y="10718" />
+                <mxPoint x="2464" y="10666" />
+                <mxPoint x="2464" y="10614" />
+                <mxPoint x="2464" y="10562" />
+                <mxPoint x="2464" y="10510" />
+                <mxPoint x="2464" y="10485" />
+                <mxPoint x="2464" y="10460" />
+                <mxPoint x="2464" y="10408" />
+                <mxPoint x="2464" y="10356" />
+                <mxPoint x="2464" y="10304" />
+                <mxPoint x="2464" y="10252" />
+                <mxPoint x="2464" y="10200" />
+                <mxPoint x="2464" y="10148" />
+                <mxPoint x="2464" y="10123" />
+                <mxPoint x="2464" y="10098" />
+                <mxPoint x="2464" y="10046" />
+                <mxPoint x="2464" y="9994" />
+                <mxPoint x="2464" y="9942" />
+                <mxPoint x="2464" y="9890" />
+                <mxPoint x="2464" y="9838" />
+                <mxPoint x="2464" y="9786" />
+                <mxPoint x="2464" y="9761" />
+                <mxPoint x="2464" y="9736" />
+                <mxPoint x="2464" y="9684" />
+                <mxPoint x="2464" y="9632" />
+                <mxPoint x="2464" y="9580" />
+                <mxPoint x="2464" y="9528" />
+                <mxPoint x="2464" y="9476" />
+                <mxPoint x="2464" y="9424" />
+                <mxPoint x="2464" y="9372" />
+                <mxPoint x="2464" y="9320" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:U-&gt;X#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.14;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="I2-MLwSUc6GrMuPYaOo3-268">
+          <mxCell edge="1" parent="I2-MLwSUc6GrMuPYaOo3-206" source="I2-MLwSUc6GrMuPYaOo3-247" style="curved=1;startArrow=none;endArrow=block;endSize=7;strokeColor=light-dark(#333333,#cccccc);exitX=0.14;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="I2-MLwSUc6GrMuPYaOo3-254">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="1846" y="10976" />
+                <mxPoint x="1846" y="11001" />
+                <mxPoint x="1846" y="11026" />
               </Array>
             </mxGeometry>
           </mxCell>
